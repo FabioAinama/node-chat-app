@@ -1,21 +1,3 @@
-/* body
-{
-    display: grid;
-    grid-template-columns: [connectedPeople] 20% [chat] 80%;
-    grid-template-rows: [header] 100px auto;
-}
-
-
-.myMessage
-{
-    background: lightblue;
-}
-
-#message-form
-{
-    grid-area: chat;
-} */
-
 button, button:hover {
     border: none;
     color: #fff;
