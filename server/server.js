@@ -21,11 +21,15 @@ io.on('connection', (socket) => {
         {
             callback('Name and room name are required.')
         }
+        socket.join(params.room);
+        socket.emit('newMessage', generateMessage('Admin', 'Welcome to the chat'));
+        socket.broadcast.to(params.room).emit('newMessage', generateMessage('Admin', `${params.name} has joined.`));
         callback();
     });
-    socket.emit('newMessage', generateMessage('Admin', 'Welcome to the chat'));
 
-    socket.broadcast.emit('newMessage', generateMessage('Admin', 'A new user joined'));
+    // socket.emit('newMessage', generateMessage('Admin', 'Welcome to the chat'));
+    // socket.broadcast.emit('newMessage', generateMessage('Admin', 'A new user joined'));
+
 
     // socket.broadcast.emit('newMessage', {
     //     from: 'Admin',
